@@ -89,6 +89,18 @@ ul {
     list-style: none;
 }
 
+/* Accessibility: Focus Styles */
+:focus-visible {
+    outline: 3px solid var(--nlc-blue);
+    outline-offset: 2px;
+}
+
+/* Skip to content link visibility on focus */
+.skip-link:focus {
+    top: 0;
+    opacity: 1;
+}
+
 /* === CONTAINER === */
 .container {
     max-width: 1200px;

@@ -130,6 +130,8 @@ class MobileMenu {
 
         this.toggle.addEventListener('click', () => {
             this.toggleMenu();
+            // Accessibility: Toggle aria-expanded
+            this.toggle.setAttribute('aria-expanded', this.isOpen);
         });
 
         // Close menu when clicking on a link
@@ -138,6 +140,8 @@ class MobileMenu {
             link.addEventListener('click', () => {
                 if (this.isOpen) {
                     this.toggleMenu();
+                    // Accessibility: Toggle aria-expanded
+                    this.toggle.setAttribute('aria-expanded', this.isOpen);
                 }
             });
         });
