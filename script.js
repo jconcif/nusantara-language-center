@@ -77,17 +77,17 @@ class SmoothScroll {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 const href = anchor.getAttribute('href');
-                
+
                 // Skip if it's just "#"
                 if (href === '#') return;
 
                 e.preventDefault();
                 const target = document.querySelector(href);
-                
+
                 if (target) {
                     const navHeight = document.querySelector('.navbar').offsetHeight;
                     const targetPosition = target.offsetTop - navHeight - 20;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -144,8 +144,8 @@ class MobileMenu {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (this.isOpen && 
-                !this.menu.contains(e.target) && 
+            if (this.isOpen &&
+                !this.menu.contains(e.target) &&
                 !this.toggle.contains(e.target)) {
                 this.toggleMenu();
             }
@@ -154,7 +154,7 @@ class MobileMenu {
 
     toggleMenu() {
         this.isOpen = !this.isOpen;
-        
+
         if (this.isOpen) {
             this.menu.style.display = 'flex';
             this.menu.style.flexDirection = 'column';
@@ -337,7 +337,7 @@ class WhatsAppIntegration {
         const message = encodeURIComponent(messages[lang]);
         const url = `https://wa.me/${this.phoneNumber}?text=${message}`;
         window.open(url, '_blank');
-        
+
         this.trackWhatsAppClick('enrollment_button', programTitle);
     }
 
@@ -356,14 +356,14 @@ class PerformanceOptimizer {
     init() {
         // Lazy load images when they're about to enter viewport
         this.lazyLoadImages();
-        
+
         // Preload critical resources
         this.preloadResources();
     }
 
     lazyLoadImages() {
         const images = document.querySelectorAll('img[data-src]');
-        
+
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -396,10 +396,10 @@ class AccessibilityEnhancer {
     init() {
         // Add keyboard navigation support
         this.addKeyboardNavigation();
-        
+
         // Add focus visible styles
         this.addFocusStyles();
-        
+
         // Add skip to content link
         this.addSkipLink();
     }
@@ -436,23 +436,24 @@ class AccessibilityEnhancer {
         skipLink.className = 'skip-link';
         skipLink.style.cssText = `
             position: absolute;
-            top: -40px;
+            top: -100px;
             left: 0;
             background: var(--nlc-blue);
             color: white;
             padding: 8px;
             text-decoration: none;
             z-index: 10000;
+            transition: top 0.3s;
         `;
-        
+
         skipLink.addEventListener('focus', () => {
             skipLink.style.top = '0';
         });
-        
+
         skipLink.addEventListener('blur', () => {
-            skipLink.style.top = '-40px';
+            skipLink.style.top = '-100px';
         });
-        
+
         document.body.insertBefore(skipLink, document.body.firstChild);
     }
 }
@@ -464,19 +465,19 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new NavbarScroll();
     new MobileMenu();
-    
+
     // Animations and interactions
     new ScrollAnimations();
     new ActiveNavigation();
     new ProgramCards();
-    
+
     // Integrations
     new WhatsAppIntegration();
-    
+
     // Enhancements
     new PerformanceOptimizer();
     new AccessibilityEnhancer();
-    
+
     console.log('🎓 Nusantara Language Center website initialized successfully!');
 });
 
@@ -498,7 +499,7 @@ function debounce(func, wait) {
 // Throttle function for scroll events
 function throttle(func, limit) {
     let inThrottle;
-    return function(...args) {
+    return function (...args) {
         if (!inThrottle) {
             func.apply(this, args);
             inThrottle = true;
