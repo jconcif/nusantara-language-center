@@ -89,11 +89,11 @@ NusantaraLanguage/
 ## 👨‍🏫 Expert Instructors
 
 1. **Ari Nursenja Rivanti, M.Pd.** - Teaching experience in Australia, Finland, and Canada
-2. **Burhan Sidik, M.Pd.** - Expert in culture, literature, and educational materials
-3. **Nais Ambarsari, M.Pd.** - Specialist in literacy and learning media
-4. **Dr. Ridzky Firmansyah Fahmi, M.Pd.** - BIPA for business and academic purposes (China, Philippines)
-5. **Tiara Adinda Sulaeman, S.Pd.** - Communicative and interactive teaching approach
-6. **Pertiyani, M.Pd.** - International BIPA expert with experience in Thailand, Russia, and Poland
+2. **Dr. Ridzky Firmansyah Fahmi, M.Pd.** - BIPA for business and academic purposes (China, Philippines)
+3. **Pertiyani, M.Pd.** - International BIPA expert with experience in Thailand, Russia, and Poland
+4. **Burhan Sidik, M.Pd.** - Expert in culture, literature, and educational materials
+5. **Nais Ambarsari, M.Pd.** - Specialist in literacy and learning media
+6. **Tiara Adinda Sulaeman, S.Pd.** - Communicative and interactive teaching approach
 
 ## 🌟 Additional Services
 
