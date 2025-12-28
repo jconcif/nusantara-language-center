@@ -196,23 +196,17 @@ ul {
 
 .nav-brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--nlc-blue) 0%, var(--nlc-green) 50%, var(--nlc-orange) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.logo-image {
+    height: 60px;
+    /* Adjust height as needed */
+    width: auto;
+    object-fit: contain;
 }
 
-.logo-subtext {
-    font-size: 0.75rem;
-    color: var(--gray);
-    font-weight: 500;
-}
+/* Old text logo styles removed */
 
 .nav-menu {
     display: flex;
