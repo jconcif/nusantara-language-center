@@ -962,9 +962,10 @@ section {
     height: 50px;
     width: auto;
     margin-bottom: var(--spacing-sm);
-    filter: brightness(0) invert(1);
-    /* Make logo white for dark footer */
-    opacity: 0.9;
+    background-color: var(--white);
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-brand p {
