@@ -1112,8 +1112,21 @@ section {
 
     /* Ensure cards don't touch edges */
     .programs-grid,
-    .instructors-grid {
+    .instructors-grid,
+    .contact-content {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: var(--spacing-md);
+    }
+
+    .contact-icon {
+        margin-bottom: var(--spacing-sm);
     }
 }
 
