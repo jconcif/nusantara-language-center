@@ -1008,6 +1008,19 @@ section {
 }
 
 /* === RESPONSIVE DESIGN === */
+
+/* Tablet and smaller desktops */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+/* Tablets (Portrait) & Large Phones */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1017,28 +1030,45 @@ section {
         display: flex;
     }
 
+    .logo-image {
+        height: 50px;
+        /* Slightly smaller logo on mobile */
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
     }
 
     .hero-cta {
         flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .btn {
         width: 100%;
     }
 
+    /* Improve grid for tablets - maintain 2 columns if possible, else 1 */
     .advantages-grid,
     .programs-grid,
     .instructors-grid,
     .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-content {
         grid-template-columns: 1fr;
     }
 
     .language-switcher {
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
     }
 
     .whatsapp-float {
@@ -1054,18 +1084,36 @@ section {
     }
 }
 
+/* Mobile Phones (small) */
 @media (max-width: 480px) {
     :root {
+        --spacing-md: 1.5rem;
         --spacing-lg: 3rem;
         --spacing-xl: 4rem;
     }
 
-    .container {
-        padding: 0 var(--spacing-sm);
+    .logo-image {
+        height: 40px;
+        /* Smaller logo for small phones */
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+        /* Better fit for small screens */
     }
 
     section {
         padding: var(--spacing-lg) 0;
+    }
+
+    .program-price .price-amount {
+        font-size: 1.75rem;
+    }
+
+    /* Ensure cards don't touch edges */
+    .programs-grid,
+    .instructors-grid {
+        grid-template-columns: 1fr;
     }
 }
 
