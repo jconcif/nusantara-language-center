@@ -303,97 +303,100 @@ class ProgramCards {
     }
 }
 
-// === WHATSAPP INTEGRATION ===
+// === WHATSAPP MODAL INTEGRATION ===
 class WhatsAppIntegration {
     constructor() {
         this.phoneNumber = '6281572451127';
+        this.modal = document.getElementById('enrollModal');
+        this.form = document.getElementById('enrollmentForm');
+        this.programTitleElement = document.getElementById('modalProgramName');
+        this.currentProgram = '';
         this.init();
     }
 
     init() {
-        // Add click tracking to WhatsApp button
-        const whatsappButton = document.querySelector('.whatsapp-float');
-        if (whatsappButton) {
-            whatsappButton.addEventListener('click', () => {
-                this.trackWhatsAppClick('floating_button');
-            });
-        }
+        if (!this.modal) return;
 
-        // Add click handlers to enrollment buttons
+        // Open Modal Triggers
         const enrollButtons = document.querySelectorAll('.btn-program');
         enrollButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const card = btn.closest('.program-card');
-                const programTitle = card.querySelector('.program-title').textContent;
-                this.sendEnrollmentMessage(programTitle);
+                const title = card.querySelector('.program-title').textContent;
+                this.openModal(title);
             });
         });
-    }
 
-    sendEnrollmentMessage(programTitle) {
-        const lang = localStorage.getItem('nlc-language') || 'en';
-        const messages = {
-            en: `Hello! I'm interested in enrolling in ${programTitle}. Could you provide more information?`,
-            id: `Halo! Saya tertarik untuk mendaftar di ${programTitle}. Bisakah Anda memberikan informasi lebih lanjut?`
-        };
+        // Close Modal Triggers
+        const closeBtn = this.modal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', () => this.closeModal());
 
-        const message = encodeURIComponent(messages[lang]);
-        const url = `https://wa.me/${this.phoneNumber}?text=${message}`;
-        window.open(url, '_blank');
+        this.modal.addEventListener('click', (e) => {
+            if (e.target === this.modal) this.closeModal();
+        });
 
-        this.trackWhatsAppClick('enrollment_button', programTitle);
-    }
+        // Form Submission
+        if (this.form) {
+            this.form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleWhatsAppRedirect();
+            });
+        }
 
-    trackWhatsAppClick(source, details = '') {
-        // Analytics tracking (can be integrated with Google Analytics)
-        console.log('WhatsApp click:', { source, details, timestamp: new Date() });
-    }
-}
-
-// === LEAD FORM HANDLING ===
-class LeadFormHandler {
-    constructor() {
-        this.form = document.getElementById('leadForm');
-        this.init();
-    }
-
-    init() {
-        if (!this.form) return;
-
-        this.form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleSubmit();
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                this.closeModal();
+            }
         });
     }
 
-    handleSubmit() {
-        const submitBtn = this.form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
+    openModal(programTitle) {
+        this.currentProgram = programTitle;
+        if (this.programTitleElement) {
+            this.programTitleElement.textContent = programTitle;
+        }
+        this.modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
 
-        // Disable button and show loading state
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+    closeModal() {
+        this.modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
-        // Simulate network request
-        setTimeout(() => {
-            // Success state
-            const lang = localStorage.getItem('nlc-language') || 'en';
-            const successMsg = lang === 'id'
-                ? 'Terima kasih! Permintaan Anda telah terkirim.'
-                : 'Thank you! Your inquiry has been sent.';
+    handleWhatsAppRedirect() {
+        const name = document.getElementById('applicantName').value;
+        const residence = document.getElementById('applicantResidence').value;
+        const lang = localStorage.getItem('nlc-language') || 'en';
 
-            alert(successMsg); // Simple alert for now, could be a modal later
+        // Construct Message
+        let message = '';
+        if (lang === 'id') {
+            message = `Halo! Nama saya ${name} dari ${residence}.\nSaya tertarik mendaftar untuk program: *${this.currentProgram}*.\nMohon info ketersediaan dan jadwalnya. Terima kasih.`;
+        } else {
+            message = `Hello! My name is ${name} from ${residence}.\nI am interested in enrolling in the *${this.currentProgram}* program.\nPlease let me know about availability and schedules. Thank you.`;
+        }
 
-            // Reset form
-            this.form.reset();
+        const encodedMessage = encodeURIComponent(message);
+        const url = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
 
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-        }, 1500);
+        // Track and Open
+        this.trackEnrollment(this.currentProgram);
+        window.open(url, '_blank');
+
+        // Optional: Close modal after short delay
+        setTimeout(() => this.closeModal(), 1000);
+    }
+
+    trackEnrollment(program) {
+        console.log(`Enrollment initiated for: ${program}`);
+        // Analytics code would go here
     }
 }
+
+
 
 // === PERFORMANCE OPTIMIZATION ===
 class PerformanceOptimizer {
@@ -521,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Integrations
     new WhatsAppIntegration();
-    new LeadFormHandler();
+
 
     // Enhancements
     new PerformanceOptimizer();
