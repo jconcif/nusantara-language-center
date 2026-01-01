@@ -843,32 +843,31 @@ section {
 .centered-contact {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 0;
-    /* Add vertical breathing room */
+    padding: 1rem 0;
+    /* Reduced vertical space */
 }
 
 .contact-cards-row {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    /* Wide gap between items */
+    gap: 2rem;
+    /* Reduced gap */
     flex-wrap: wrap;
     margin-top: 1rem;
 }
 
 .contact-item {
     flex: 1;
-    min-width: 280px;
-    /* Prevent too narrow cards */
-    max-width: 350px;
+    min-width: 260px;
+    max-width: 320px;
     display: flex;
     flex-direction: column;
     /* Stack icon and text */
     align-items: center;
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.5rem;
     background: var(--white);
-    border-radius: 20px;
+    border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     /* Subtle float effect */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -876,40 +875,40 @@ section {
 }
 
 .contact-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .contact-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .contact-icon svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
 .contact-details h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     color: var(--black);
 }
 
 .contact-link {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--nlc-blue);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -922,7 +921,7 @@ section {
 .contact-details p {
     color: var(--gray);
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .availability {
