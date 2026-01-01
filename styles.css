@@ -89,18 +89,6 @@ ul {
     list-style: none;
 }
 
-/* Accessibility: Focus Styles */
-:focus-visible {
-    outline: 3px solid var(--nlc-blue);
-    outline-offset: 2px;
-}
-
-/* Skip to content link visibility on focus */
-.skip-link:focus {
-    top: 0;
-    opacity: 1;
-}
-
 /* === CONTAINER === */
 .container {
     max-width: 1200px;
@@ -742,29 +730,14 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
-.instructor-countries {
-    display: flex;
-    gap: 10px;
+.instructor-best-for {
+    font-size: 0.9rem;
+    color: var(--nlc-blue-dark);
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--light-gray);
 }
 
-.country-flag {
-    font-size: 1.5rem;
-}
-
-.instructor-specialties {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.specialty-tag {
-    background: var(--off-white);
-    color: var(--nlc-blue);
-    padding: 6px 12px;
-    border-radius: var(--radius-md);
-    font-size: 0.875rem;
-    font-weight: 600;
-}
 
 /* === TESTIMONIALS SECTION === */
 .testimonials {
