@@ -351,6 +351,50 @@ class WhatsAppIntegration {
     }
 }
 
+// === LEAD FORM HANDLING ===
+class LeadFormHandler {
+    constructor() {
+        this.form = document.getElementById('leadForm');
+        this.init();
+    }
+
+    init() {
+        if (!this.form) return;
+
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.handleSubmit();
+        });
+    }
+
+    handleSubmit() {
+        const submitBtn = this.form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        // Simulate network request
+        setTimeout(() => {
+            // Success state
+            const lang = localStorage.getItem('nlc-language') || 'en';
+            const successMsg = lang === 'id'
+                ? 'Terima kasih! Permintaan Anda telah terkirim.'
+                : 'Thank you! Your inquiry has been sent.';
+
+            alert(successMsg); // Simple alert for now, could be a modal later
+
+            // Reset form
+            this.form.reset();
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }, 1500);
+    }
+}
+
 // === PERFORMANCE OPTIMIZATION ===
 class PerformanceOptimizer {
     constructor() {
@@ -477,6 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Integrations
     new WhatsAppIntegration();
+    new LeadFormHandler();
 
     // Enhancements
     new PerformanceOptimizer();
