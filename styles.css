@@ -730,6 +730,12 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
+.instructor-experience {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-xs);
+}
+
 .instructor-best-for {
     font-size: 0.9rem;
     color: var(--nlc-blue-dark);
