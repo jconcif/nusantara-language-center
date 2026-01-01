@@ -366,9 +366,67 @@ class WhatsAppIntegration {
         document.body.style.overflow = '';
     }
 
+    validateForm() {
+        const nameInput = document.getElementById('applicantName');
+        const residenceInput = document.getElementById('applicantResidence');
+        const lang = localStorage.getItem('nlc-language') || 'en';
+
+        let isValid = true;
+
+        // Clear previous custom errors
+        nameInput.setCustomValidity('');
+        residenceInput.setCustomValidity('');
+
+        // Validate name
+        if (!nameInput.value.trim()) {
+            const errorMsg = lang === 'id'
+                ? 'Mohon masukkan nama Anda'
+                : 'Please enter your name';
+            nameInput.setCustomValidity(errorMsg);
+            isValid = false;
+        } else if (nameInput.value.trim().length < 2) {
+            const errorMsg = lang === 'id'
+                ? 'Nama harus minimal 2 karakter'
+                : 'Name must be at least 2 characters';
+            nameInput.setCustomValidity(errorMsg);
+            isValid = false;
+        }
+
+        // Validate residence
+        if (!residenceInput.value.trim()) {
+            const errorMsg = lang === 'id'
+                ? 'Mohon masukkan negara/tempat tinggal Anda'
+                : 'Please enter your country/residence';
+            residenceInput.setCustomValidity(errorMsg);
+            isValid = false;
+        } else if (residenceInput.value.trim().length < 2) {
+            const errorMsg = lang === 'id'
+                ? 'Tempat tinggal harus minimal 2 karakter'
+                : 'Residence must be at least 2 characters';
+            residenceInput.setCustomValidity(errorMsg);
+            isValid = false;
+        }
+
+        // Report validity (shows custom messages)
+        if (!isValid) {
+            if (!nameInput.checkValidity()) {
+                nameInput.reportValidity();
+            } else if (!residenceInput.checkValidity()) {
+                residenceInput.reportValidity();
+            }
+        }
+
+        return isValid;
+    }
+
     handleWhatsAppRedirect() {
-        const name = document.getElementById('applicantName').value;
-        const residence = document.getElementById('applicantResidence').value;
+        // Validate form first
+        if (!this.validateForm()) {
+            return;
+        }
+
+        const name = document.getElementById('applicantName').value.trim();
+        const residence = document.getElementById('applicantResidence').value.trim();
         const lang = localStorage.getItem('nlc-language') || 'en';
 
         // Construct Message

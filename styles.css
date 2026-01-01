@@ -1160,6 +1160,24 @@ section {
     color: var(--light-gray);
 }
 
+/* === FORM VALIDATION STYLES === */
+.modal-input:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.modal-input:valid:not(:placeholder-shown) {
+    border-color: #10b981;
+}
+
+.modal-input:focus:invalid {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.modal-input:focus:valid {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
 /* === RESPONSIVE DESIGN === */
 
 /* Tablet and smaller desktops */
