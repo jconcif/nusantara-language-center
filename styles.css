@@ -839,59 +839,84 @@ section {
     font-size: 0.875rem;
 }
 
-/* === CONTACT SECTION & LEAD FORM === */
-.contact-grid-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    /* More breathing room */
-    align-items: start;
-    max-width: 1100px;
+/* === CONTACT SECTION (CLEAN) === */
+.centered-contact {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 0;
+    /* Add vertical breathing room */
 }
 
-.contact-card-info {
+.contact-cards-row {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-top: 1rem;
+    justify-content: center;
+    gap: 3rem;
+    /* Wide gap between items */
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 .contact-item {
+    flex: 1;
+    min-width: 280px;
+    /* Prevent too narrow cards */
+    max-width: 350px;
     display: flex;
-    align-items: flex-start;
-    /* Align to top to handle multi-line address */
-    gap: 1.5rem;
-    /* Removed individual card background/shadow for cleaner look */
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
+    flex-direction: column;
+    /* Stack icon and text */
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    /* Subtle float effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .contact-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    /* Softer rounded corners */
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    /* Subtle glow for icons */
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .contact-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
 }
 
 .contact-details h3 {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.75rem;
     color: var(--black);
+}
+
+.contact-link {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--nlc-blue);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: var(--nlc-blue-dark);
+    text-decoration: underline;
 }
 
 .contact-details p {
@@ -901,10 +926,27 @@ section {
 }
 
 .availability {
-    font-size: 0.85rem !important;
-    color: var(--nlc-green) !important;
-    font-weight: 500;
-    margin-top: 4px;
+    display: inline-block;
+    background: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .contact-cards-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: 400px;
+    }
 }
 
 /* Lead Form Styling */
@@ -1294,6 +1336,7 @@ section {
         animation-delay: 0.6s;
     }
 }
+
 /* === ENROLLMENT MODAL === */
 .modal-backdrop {
     position: fixed;
@@ -1415,7 +1458,7 @@ section {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .highlight-sub {
@@ -1480,7 +1523,8 @@ section {
     gap: 10px;
     width: 100%;
     margin-top: 1rem;
-    background-color: #25D366; /* Official WhatsApp Green */
+    background-color: #25D366;
+    /* Official WhatsApp Green */
     color: #fff;
     font-size: 1.1rem;
     padding: 14px;
@@ -1498,11 +1542,13 @@ section {
     .modal-body {
         grid-template-columns: 1fr;
     }
+
     .modal-highlights {
         border-right: none;
         border-bottom: 1px solid var(--light-gray);
         padding: 1.5rem;
     }
+
     .modal-form-section {
         padding: 1.5rem;
     }
