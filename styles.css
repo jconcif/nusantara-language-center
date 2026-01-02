@@ -1364,8 +1364,8 @@ section {
     }
 
     .container {
-        padding: 0 1.5rem;
-        /* Increased padding to ensure card borders are visible */
+        padding: 0 1.75rem;
+        /* Increased padding to ensure card borders and shadows are perfectly visible */
     }
 
     .logo-image {
@@ -1418,9 +1418,13 @@ section {
 
 
     .instructor-image {
-        width: 160px;
-        height: 160px;
+        width: 100%;
+        max-width: 240px;
+        /* Portraits look better centered on mobile */
+        height: 300px;
+        /* Clearly rectangular / Portrait */
         margin: 0 auto 1.5rem;
+        border-radius: var(--radius-md);
     }
 
     .testimonial-card {
