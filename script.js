@@ -425,14 +425,22 @@ class WhatsAppIntegration {
             return;
         }
 
+        const submitBtn = this.form.querySelector('.btn-whatsapp-action');
+        const originalContent = submitBtn.innerHTML;
+        const lang = localStorage.getItem('nlc-language') || 'en';
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = lang === 'id' ? 'Mengalihkan...' : 'Redirecting...';
+        submitBtn.style.opacity = '0.7';
+
         const name = document.getElementById('applicantName').value.trim();
         const residence = document.getElementById('applicantResidence').value.trim();
-        const lang = localStorage.getItem('nlc-language') || 'en';
 
         // Construct Message
         let message = '';
         if (lang === 'id') {
-            message = `Halo! Nama saya ${name} dari ${residence}.\nSaya tertarik mendaftar untuk program: *${this.currentProgram}*.\nMohon info ketersediaan dan jadwalnya. Terima kasih.`;
+            message = `Halo! Nama saya ${name} dari ${residence}.\nSaya tertarik mendaftar para program: *${this.currentProgram}*.\nMohon info ketersediaan dan jadwalnya. Terima kasih.`;
         } else {
             message = `Hello! My name is ${name} from ${residence}.\nI am interested in enrolling in the *${this.currentProgram}* program.\nPlease let me know about availability and schedules. Thank you.`;
         }
@@ -440,12 +448,19 @@ class WhatsAppIntegration {
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
 
-        // Track and Open
-        this.trackEnrollment(this.currentProgram);
-        window.open(url, '_blank');
+        // Small delay for visual feedback before opening
+        setTimeout(() => {
+            this.trackEnrollment(this.currentProgram); // Track before opening
+            window.open(url, '_blank', 'noopener,noreferrer');
 
-        // Optional: Close modal after short delay
-        setTimeout(() => this.closeModal(), 1000);
+            // Restore button after a delay (in case they come back to the tab)
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalContent;
+                submitBtn.style.opacity = '1';
+                this.closeModal();
+            }, 1000);
+        }, 800);
     }
 
     trackEnrollment(program) {
