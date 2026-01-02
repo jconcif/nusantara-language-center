@@ -1396,22 +1396,26 @@ section {
 
     .advantage-card,
     .program-card,
-    .instructor-card,
-    .testimonial-card {
-        padding: 1.5rem 1.25rem;
+    .instructor-card {
+        padding: 2rem 1.5rem;
+        /* Standardized card internal padding */
     }
 
     .program-price .price-amount {
         font-size: 1.75rem;
     }
 
-    /* Ensure cards stack correctly */
     .programs-grid,
     .instructors-grid,
     .contact-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
+        gap: 1.5rem;
+        /* Standardized gap for all sections */
+        padding: 0.5rem 0;
+        /* Vertical breathing room */
     }
+
+
 
     .instructor-image {
         width: 160px;
