@@ -158,6 +158,7 @@ class MobileMenu {
 
     toggleMenu() {
         this.isOpen = !this.isOpen;
+        document.body.classList.toggle('no-scroll', this.isOpen);
 
         if (this.isOpen) {
             this.menu.style.display = 'flex';
@@ -185,9 +186,9 @@ class MobileMenu {
         // Animate toggle button
         const spans = this.toggle.querySelectorAll('span');
         if (this.isOpen) {
-            spans[0].style.transform = 'rotate(45deg) translateY(10px)';
+            spans[0].style.transform = 'translateY(7px) rotate(45deg)';
             spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
+            spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
         } else {
             spans[0].style.transform = '';
             spans[1].style.opacity = '';
@@ -455,45 +456,20 @@ class WhatsAppIntegration {
 
 
 
-// === PERFORMANCE OPTIMIZATION ===
-class PerformanceOptimizer {
+// === FOOTER MANAGER ===
+class FooterManager {
     constructor() {
+        this.yearElement = document.getElementById('copyrightYear');
         this.init();
     }
 
     init() {
-        // Lazy load images when they're about to enter viewport
-        this.lazyLoadImages();
-
-        // Preload critical resources
-        this.preloadResources();
-    }
-
-    lazyLoadImages() {
-        const images = document.querySelectorAll('img[data-src]');
-
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.getAttribute('data-src');
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        images.forEach(img => imageObserver.observe(img));
-    }
-
-    preloadResources() {
-        // Preload Google Fonts
-        const fontLink = document.createElement('link');
-        fontLink.rel = 'preconnect';
-        fontLink.href = 'https://fonts.googleapis.com';
-        document.head.appendChild(fontLink);
+        if (this.yearElement) {
+            this.yearElement.textContent = new Date().getFullYear();
+        }
     }
 }
+
 
 // === ACCESSIBILITY ENHANCEMENTS ===
 class AccessibilityEnhancer {
@@ -582,12 +558,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Integrations
     new WhatsAppIntegration();
 
-
     // Enhancements
-    new PerformanceOptimizer();
+    new FooterManager();
     new AccessibilityEnhancer();
 
-    console.log('🎓 Nusantara Language Center website initialized successfully!');
+    console.log('🎓 Nusantara Language Center website initialized successfully (2026)!');
 });
 
 // === UTILITY FUNCTIONS ===

@@ -794,20 +794,37 @@ section {
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
     gap: var(--spacing-md);
-    max-width: 1000px;
-    margin: 0 auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem var(--spacing-md) 3rem;
+    margin: 0 -1rem;
+    /* Negative margin to allow cards to reach edges during scroll */
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
+    -ms-overflow-style: none;
+    /* Hide scrollbar IE */
+    scroll-behavior: smooth;
+    cursor: grab;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
 }
 
 .testimonial-card {
+    flex: 0 0 450px;
+    /* Fixed width for consistency */
     background: var(--off-white);
     padding: var(--spacing-md);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     transition: var(--transition-normal);
     position: relative;
+    scroll-snap-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .testimonial-card:hover {
@@ -829,11 +846,13 @@ section {
 }
 
 .testimonial-text {
-    font-size: 1.125rem;
-    line-height: 1.8;
+    font-size: 1.1rem;
+    line-height: 1.7;
     color: var(--dark-gray);
     margin-bottom: var(--spacing-md);
     font-style: italic;
+    min-height: 100px;
+    /* Maintain height consistency */
 }
 
 .testimonial-author {
@@ -1738,4 +1757,21 @@ section {
 .modal-input:focus {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(74, 144, 226, 0.1);
+}
+
+.no-scroll {
+    overflow: hidden !important;
+}
+
+.author-program {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(74, 144, 226, 0.1);
+    color: var(--nlc-blue-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
