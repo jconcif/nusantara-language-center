@@ -1364,7 +1364,8 @@ section {
     }
 
     .container {
-        padding: 0 1.25rem;
+        padding: 0 1.5rem;
+        /* Increased padding to ensure card borders are visible */
     }
 
     .logo-image {
@@ -1413,9 +1414,14 @@ section {
     }
 
     .instructor-image {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 1.25rem;
+        width: 160px;
+        height: 160px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .testimonial-card {
+        flex: 0 0 290px;
+        /* Better fit for mobile screens */
     }
 
     .footer-logo {
@@ -1695,12 +1701,14 @@ section {
     gap: 10px;
     width: 100%;
     margin-top: 1rem;
-    background-color: #25D366;
-    /* Official WhatsApp Green */
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: #fff;
     font-size: 1.1rem;
-    padding: 14px;
-    border-radius: 12px;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    border: none;
     transition: all 0.3s;
 }
 
