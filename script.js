@@ -237,13 +237,14 @@ class ActiveNavigation {
     }
 
     init() {
-        window.addEventListener('scroll', () => {
+        // Use throttle to improve scroll performance
+        window.addEventListener('scroll', throttle(() => {
             this.highlightActiveSection();
-        });
+        }, 100));
     }
 
     highlightActiveSection() {
-        const scrollPosition = window.scrollY + 100;
+        const scrollPosition = window.scrollY + 150; // Increased offset for better trigger
 
         this.sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -254,9 +255,7 @@ class ActiveNavigation {
                 this.navLinks.forEach(link => {
                     link.classList.remove('active-section');
                     if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.style.color = 'var(--nlc-blue)';
-                    } else {
-                        link.style.color = '';
+                        link.classList.add('active-section');
                     }
                 });
             }
