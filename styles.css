@@ -839,112 +839,132 @@ section {
     font-size: 0.875rem;
 }
 
-/* === CONTACT SECTION (CLEAN) === */
-.centered-contact {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 0;
-    /* Reduced vertical space */
+/* === CONTACT SECTION (CONVERSATIONAL CTA) === */
+.contact {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
-.contact-cards-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    /* Reduced gap */
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.contact-item {
-    flex: 1;
-    min-width: 260px;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    /* Stack icon and text */
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    /* Subtle float effect */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-}
-
-.contact-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-}
-
-.contact-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    margin-bottom: 1rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-.contact-details h3 {
-    font-size: 1.1rem;
+.contact-hero-text {
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--black);
+    color: var(--nlc-blue-dark);
+    margin: 1.5rem 0 1rem;
+    text-align: center;
 }
 
-.contact-link {
-    display: block;
-    font-size: 1rem;
+.contact-description {
+    font-size: 1.15rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.contact-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.highlight-emoji {
+    font-size: 1.5rem;
+}
+
+.contact-benefits {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+}
+
+.contact-benefits .separator {
+    margin: 0 0.75rem;
     color: var(--nlc-blue);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
+}
+
+.contact-cta-section {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn-whatsapp-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
     text-decoration: none;
+    margin-bottom: 1.5rem;
+}
+
+.btn-whatsapp-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128C7E 0%, #0d6e5f 100%);
+}
+
+.btn-whatsapp-large svg {
+    flex-shrink: 0;
+}
+
+.contact-alternative {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.email-link {
+    color: var(--nlc-blue);
+    text-decoration: none;
+    font-weight: 600;
     transition: color 0.2s;
 }
 
-.contact-link:hover {
+.email-link:hover {
     color: var(--nlc-blue-dark);
     text-decoration: underline;
 }
 
-.contact-details p {
-    color: var(--gray);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-.availability {
-    display: inline-block;
-    background: rgba(37, 211, 102, 0.1);
-    color: #25D366;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-top: 0.5rem;
-}
-
 @media (max-width: 768px) {
-    .contact-cards-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+    .contact-hero-text {
+        font-size: 1.6rem;
     }
 
-    .contact-item {
+    .contact-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .contact-highlights {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .btn-whatsapp-large {
         width: 100%;
-        max-width: 400px;
+        padding: 16px 30px;
+        font-size: 1.1rem;
     }
 }
 
