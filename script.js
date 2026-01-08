@@ -48,6 +48,11 @@ class LanguageManager {
 
         // Update HTML lang attribute
         document.documentElement.lang = lang;
+
+        // Dispatch event for other classes to listen
+        document.dispatchEvent(new CustomEvent('nlc-language-changed', {
+            detail: { language: lang }
+        }));
     }
 
     updateContent(lang) {
@@ -306,15 +311,24 @@ class ProgramCards {
 // === WHATSAPP MODAL INTEGRATION ===
 class WhatsAppIntegration {
     constructor() {
-        this.phoneNumber = '6285940365407'; // Test number
+        this.phoneNumber = '6281572451127'; // WhatsApp official number
         this.modal = document.getElementById('enrollModal');
         this.form = document.getElementById('enrollmentForm');
         this.programTitleElement = document.getElementById('modalProgramName');
         this.currentProgram = '';
         this.init();
+
+        // Listen for language changes to update static links
+        document.addEventListener('nlc-language-changed', (e) => {
+            this.updateStaticLinks(e.detail.language);
+        });
     }
 
     init() {
+        // Initial update for static links
+        const lang = localStorage.getItem('nlc-language') || 'en';
+        this.updateStaticLinks(lang);
+
         if (!this.modal) return;
 
         // Open Modal Triggers
@@ -440,7 +454,7 @@ class WhatsAppIntegration {
         // Construct Message
         let message = '';
         if (lang === 'id') {
-            message = `Halo! Nama saya ${name} dari ${residence}.\nSaya tertarik mendaftar para program: *${this.currentProgram}*.\nMohon info ketersediaan dan jadwalnya. Terima kasih.`;
+            message = `Halo! Nama saya ${name} dari ${residence}.\nSaya tertarik mendaftar untuk program: *${this.currentProgram}*.\nMohon info ketersediaan dan jadwalnya. Terima kasih.`;
         } else {
             message = `Hello! My name is ${name} from ${residence}.\nI am interested in enrolling in the *${this.currentProgram}* program.\nPlease let me know about availability and schedules. Thank you.`;
         }
@@ -464,12 +478,25 @@ class WhatsAppIntegration {
     }
 
     trackEnrollment(program) {
-        console.log(`Enrollment initiated for: ${program}`);
-        // Analytics code would go here
+        // Track the lead (Global or specific analytics)
+        console.log(`📈 Lead tracked: WhatsApp enrollment for ${program}`);
+    }
+
+    updateStaticLinks(lang) {
+        const dynamicLinks = document.querySelectorAll('.btn-whatsapp-dynamic');
+
+        const message = lang === 'id'
+            ? "Halo! Saya sedang mengunjungi website dan ingin mendapatkan informasi lebih lanjut tentang kursus bahasa Indonesia. Terima kasih."
+            : "Hello! I am visiting the website and would like to get more information about your Indonesian language programs. Thank you.";
+
+        const encodedMessage = encodeURIComponent(message);
+        const url = `https://wa.me/${this.phoneNumber}?text=${encodedMessage}`;
+
+        dynamicLinks.forEach(link => {
+            link.href = url;
+        });
     }
 }
-
-
 
 // === FOOTER MANAGER ===
 class FooterManager {
