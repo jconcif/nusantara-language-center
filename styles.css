@@ -1033,7 +1033,6 @@ section {
 
 .email-link:hover {
     color: var(--nlc-blue-dark);
-    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
