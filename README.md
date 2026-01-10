@@ -71,7 +71,7 @@ NusantaraLanguage/
 
 ## 📱 Contact Information
 
-- **Email**: nusantaralanguagecenter@gmail.com
+- **Email**: info@nlcindonesia.com
 - **WhatsApp**: +62 815-7245-1127
 - **Location**: Jl. Setiabudi Regency Wing 1 no. 43-O, Bandung, West Java, Indonesia
 
