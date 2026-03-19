@@ -311,7 +311,7 @@ class ProgramCards {
 // === WHATSAPP MODAL INTEGRATION ===
 class WhatsAppIntegration {
     constructor() {
-        this.phoneNumber = '6281572451127'; // WhatsApp official number
+        this.phoneNumber = '6289674531330'; // WhatsApp official number
         this.modal = document.getElementById('enrollModal');
         this.form = document.getElementById('enrollmentForm');
         this.programTitleElement = document.getElementById('modalProgramName');
