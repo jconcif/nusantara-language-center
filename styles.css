@@ -577,6 +577,71 @@ section {
     line-height: 1.6;
 }
 
+/* === COWORKING SPOTLIGHT (Premium Block) === */
+.coworking-spotlight {
+    margin-top: 4rem;
+    background: var(--white);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    border-radius: 24px;
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+}
+
+.coworking-spotlight-left {
+    flex: 1 1 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+}
+
+.coworking-spotlight-right {
+    flex: 1.5 1 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--light-gray);
+    padding-left: 3rem;
+    z-index: 1;
+}
+
+.coworking-spotlight-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1.5rem;
+}
+
+/* Mobile responsive adjustments for Coworking Spotlight */
+@media (max-width: 900px) {
+    .coworking-spotlight {
+        padding: 2rem;
+        gap: 2rem;
+    }
+    
+    .coworking-spotlight-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px dashed var(--light-gray);
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coworking-spotlight {
+        padding: 2rem 1.2rem;
+        border-radius: 16px;
+    }
+}
+
 /* === PROGRAMS SECTION === */
 .programs {
     background: var(--white);
