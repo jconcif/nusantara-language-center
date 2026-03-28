@@ -85,6 +85,15 @@ a {
     transition: var(--transition-normal);
 }
 
+/* Accessibility: Focus styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--nlc-blue);
+    outline-offset: 2px;
+}
+
 ul {
     list-style: none;
 }
@@ -1348,9 +1357,9 @@ section {
     }
 
     .language-switcher {
-        top: 10px;
-        right: 12px;
-        padding: 4px 6px;
+        top: 15px;
+        right: 65px; /* Fixed overlap with hamburger menu that sits on the right edge */
+        padding: 6px 8px; /* Slightly easier to tap */
         font-size: 0.8rem;
     }
 }

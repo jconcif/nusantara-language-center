@@ -42,6 +42,10 @@
         content="Premier Indonesian language (BIPA) courses in Bandung. Expert instructors, flexible schedules, small groups.">
     <meta property="twitter:image" content="https://nusantaralc.com/img/icon.png">
 
+    <!-- SEO & Accessibility -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nusantaralc.com/">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,14 +53,38 @@
         rel="stylesheet">
 
     <!-- Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Nusantara Language Center",
+      "url": "https://nusantaralc.com/",
+      "logo": "https://nusantaralc.com/img/logo-horizontal.png",
+      "description": "Premier Indonesian language (BIPA) courses in Bandung for international students.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bandung",
+        "addressCountry": "ID"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+6289674531330",
+        "contactType": "admissions",
+        "availableLanguage": ["English", "Indonesian"]
+      }
+    }
+    </script>
 </head>
 
 <body>
     <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="id">ID</button>
+    <div class="language-switcher" aria-label="Language options" role="group">
+        <button class="lang-btn active" data-lang="en" aria-label="Switch to English" aria-pressed="true">EN</button>
+        <button class="lang-btn" data-lang="id" aria-label="Ganti ke Bahasa Indonesia" aria-pressed="false">ID</button>
     </div>
 
     <!-- WhatsApp Float Button -->
@@ -74,7 +102,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="nav-brand">
-                <img src="img/logo-horizontal.png" alt="Nusantara Language Center Logo" class="logo-image">
+                <img src="img/logo-horizontal.png" alt="Nusantara Language Center Logo" class="logo-image" width="200" height="60">
             </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" data-en="Home" data-id="Beranda">Home</a></li>
@@ -93,6 +121,9 @@
             </button>
         </div>
     </nav>
+
+    <!-- Main Content Wrapper for SEO & A11Y -->
+    <main>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -244,27 +275,18 @@
                     </div>
                 </div>
 
+                <div class="program-outcomes" style="margin-top: 1rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: var(--dark-gray); line-height: 1.4;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.3rem;" data-en="Outcomes:" data-id="Hasil Pembelajaran:">Outcomes:</strong>
+                    <span data-en="Alphabet & pronunciation · Self-introduction · Basic greetings · Numbers & time · Directions & locations · Basic Q&A" data-id="Alfabet & pelafalan · Perkenalan diri · Salam dasar · Angka & waktu · Arah & lokasi · Tanya jawab dasar">Alphabet & pronunciation · Self-introduction · Basic greetings · Numbers & time · Directions & locations · Basic Q&A</span>
+                </div>
+
                 <div class="program-fee-section"
-                    style="margin-top: 0.5rem; margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
-                    <div style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Private class:" data-id="Kelas Privat:">Private class:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    5.2M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    7.5M</strong></span>
-                        </div>
-                    </div>
-                    <div>
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Small group:" data-id="Kelompok Kecil:">Small group:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    2.5M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    3.7M</strong></span>
-                        </div>
+                    style="margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
+                        data-en="Course fee:" data-id="Biaya kursus:">Course fee:</strong>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
+                        <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR 5M</strong></span>
+                        <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR 7.5M</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-program" style="margin-top: auto;" data-en="Enroll Now"
@@ -286,27 +308,18 @@
                     </div>
                 </div>
 
+                <div class="program-outcomes" style="margin-top: 1rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: var(--dark-gray); line-height: 1.4;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.3rem;" data-en="Outcomes:" data-id="Hasil Pembelajaran:">Outcomes:</strong>
+                    <span data-en="Daily routines · Describing people/places · Asking for info · Likes & dislikes · Simple transactions · Practical conversations" data-id="Rutinitas harian · Mendeskripsikan orang/tempat · Meminta informasi · Suka & tidak suka · Transaksi sederhana · Percakapan praktis">Daily routines · Describing people/places · Asking for info · Likes & dislikes · Simple transactions · Practical conversations</span>
+                </div>
+
                 <div class="program-fee-section"
-                    style="margin-top: 0.5rem; margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
-                    <div style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Private class:" data-id="Kelas Privat:">Private class:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    6.3M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    8.9M</strong></span>
-                        </div>
-                    </div>
-                    <div>
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Small group:" data-id="Kelompok Kecil:">Small group:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    3.1M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    4.2M</strong></span>
-                        </div>
+                    style="margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
+                        data-en="Course fee:" data-id="Biaya kursus:">Course fee:</strong>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
+                        <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR 6.2M</strong></span>
+                        <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR 8.8M</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-program" style="margin-top: auto;" data-en="Enroll Now"
@@ -329,27 +342,18 @@
                     </div>
                 </div>
 
+                <div class="program-outcomes" style="margin-top: 1rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: var(--dark-gray); line-height: 1.4;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.3rem;" data-en="Outcomes:" data-id="Hasil Pembelajaran:">Outcomes:</strong>
+                    <span data-en="Sharing experiences · Expressing opinions · Simple compound sentences · Light discussions · Short texts · Functional communication" data-id="Berbagi pengalaman · Menyampaikan pendapat · Kalimat majemuk sederhana · Diskusi ringan · Teks pendek · Komunikasi fungsional">Sharing experiences · Expressing opinions · Simple compound sentences · Light discussions · Short texts · Functional communication</span>
+                </div>
+
                 <div class="program-fee-section"
-                    style="margin-top: 0.5rem; margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
-                    <div style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Private class:" data-id="Kelas Privat:">Private class:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    7.7M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    11.2M</strong></span>
-                        </div>
-                    </div>
-                    <div>
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Small group:" data-id="Kelompok Kecil:">Small group:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    3.8M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    5.4M</strong></span>
-                        </div>
+                    style="margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
+                        data-en="Course fee:" data-id="Biaya kursus:">Course fee:</strong>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
+                        <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR 7.3M</strong></span>
+                        <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR 11.5M</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-program" style="margin-top: auto;" data-en="Enroll Now"
@@ -371,27 +375,18 @@
                     </div>
                 </div>
 
+                <div class="program-outcomes" style="margin-top: 1rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: var(--dark-gray); line-height: 1.4;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.3rem;" data-en="Outcomes:" data-id="Hasil Pembelajaran:">Outcomes:</strong>
+                    <span data-en="Discussions & arguments · Short presentations · Light formal discourse · Semi-formal writing · Register awareness · Independent communication" data-id="Diskusi & argumen · Presentasi singkat · Wacana formal ringan · Penulisan semi-formal · Kesadaran ragam bahasa · Komunikasi mandiri">Discussions & arguments · Short presentations · Light formal discourse · Semi-formal writing · Register awareness · Independent communication</span>
+                </div>
+
                 <div class="program-fee-section"
-                    style="margin-top: 0.5rem; margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
-                    <div style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Private class:" data-id="Kelas Privat:">Private class:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    7.7M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    11.2M</strong></span>
-                        </div>
-                    </div>
-                    <div>
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Small group:" data-id="Kelompok Kecil:">Small group:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    3.8M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    5.4M</strong></span>
-                        </div>
+                    style="margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
+                        data-en="Course fee:" data-id="Biaya kursus:">Course fee:</strong>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
+                        <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR 8.3M</strong></span>
+                        <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR 12.5M</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-program" style="margin-top: auto;" data-en="Enroll Now"
@@ -413,27 +408,18 @@
                     </div>
                 </div>
 
+                <div class="program-outcomes" style="margin-top: 1rem; margin-bottom: 1rem; text-align: left; font-size: 0.85rem; color: var(--dark-gray); line-height: 1.4;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.3rem;" data-en="Outcomes:" data-id="Hasil Pembelajaran:">Outcomes:</strong>
+                    <span data-en="Advanced discussions · Structured presentations · Formal texts · Nuanced expression · Academic/professional communication · High-level fluency" data-id="Diskusi tingkat lanjut · Presentasi terstruktur · Teks formal · Ekspresi bernuansa · Komunikasi akademik/profesional · Kelancaran tingkat tinggi">Advanced discussions · Structured presentations · Formal texts · Nuanced expression · Academic/professional communication · High-level fluency</span>
+                </div>
+
                 <div class="program-fee-section"
-                    style="margin-top: 0.5rem; margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
-                    <div style="margin-bottom: 0.8rem;">
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Private class:" data-id="Kelas Privat:">Private class:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    9.2M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    13.8M</strong></span>
-                        </div>
-                    </div>
-                    <div>
-                        <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
-                            data-en="Small group:" data-id="Kelompok Kecil:">Small group:</strong>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
-                            <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
-                                    4.5M</strong></span>
-                            <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR
-                                    13.8M</strong></span>
-                        </div>
+                    style="margin-bottom: 2rem; text-align: left; font-size: 0.9rem;">
+                    <strong style="color: var(--black); display: block; margin-bottom: 0.2rem;"
+                        data-en="Course fee:" data-id="Biaya kursus:">Course fee:</strong>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--dark-gray);">
+                        <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR 9.3M</strong></span>
+                        <span>🏫 <span data-en="Onsite" data-id="Tatap Muka">Onsite</span> <strong>IDR 13.8M</strong></span>
                     </div>
                 </div>
                 <button class="btn btn-program" style="margin-top: auto;" data-en="Enroll Now"
@@ -441,7 +427,7 @@
             </div>
 
             <!-- Bundled Packages -->
-            <div class="program-card featured" data-level="3" style="display: flex; flex-direction: column;">
+            <div class="program-card featured" data-level="3" style="display: flex; flex-direction: column; grid-column: 1 / -1; max-width: 800px; margin: 0 auto; width: 100%;">
                 <div class="featured-badge" data-en="Best Value" data-id="Hemat">Best Value</div>
                 <div class="program-badge" data-en="Bundled Packages" data-id="Paket Bundling">Bundled Packages</div>
                 <h3 class="program-title" data-en="Discounted Tracks" data-id="Jalur Diskon">Discounted Tracks</h3>
@@ -456,6 +442,8 @@
                             1. Beginner + Basic <span
                                 style="font-weight: 500; font-size: 0.85rem; color: var(--gray);" data-en="(22 weeks)" data-id="(22 minggu)">(22 weeks)</span>
                         </strong>
+                        <div style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.3rem;" data-en="👉 Independent daily communication · Basic life tasks · Practical conversations" data-id="👉 Komunikasi harian mandiri · Tugas kehidupan dasar · Percakapan praktis">👉 Independent daily communication · Basic life tasks · Practical conversations
+                        </div>
                         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--black);">
                             <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
                                     10M</strong></span>
@@ -471,6 +459,8 @@
                             2. Beginner + Basic + Pre-Int. <span
                                 style="font-weight: 500; font-size: 0.85rem; color: var(--gray);" data-en="(37 weeks)" data-id="(37 minggu)">(37 weeks)</span>
                         </strong>
+                        <div style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.3rem;" data-en="👉 Independent communication · Light discussions · Campus/workplace basics" data-id="👉 Komunikasi mandiri · Diskusi ringan · Dasar kampus/tempat kerja">👉 Independent communication · Light discussions · Campus/workplace basics
+                        </div>
                         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--black);">
                             <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
                                     16.6M</strong></span>
@@ -485,7 +475,7 @@
                             3. Full Track <span
                                 style="font-weight: 500; font-size: 0.85rem; color: var(--gray);" data-en="(~1–1.5 years)" data-id="(~1-1.5 tahun)">(~1–1.5 years)</span>
                         </strong>
-                        <div style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.3rem;" data-en="Beginner → Advance" data-id="Pemula → Mahir">Beginner → Advance
+                        <div style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.3rem;" data-en="👉 Fluent everyday use · Presentations · Formal texts · Academic/pro readiness" data-id="👉 Penggunaan sehari-hari yang fasih · Presentasi · Teks formal · Kesiapan akademik/profesional">👉 Fluent everyday use · Presentations · Formal texts · Academic/pro readiness
                         </div>
                         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--black);">
                             <span>💻 <span data-en="Online" data-id="Daring">Online</span> <strong>IDR
@@ -500,6 +490,11 @@
                     data-id="Daftar Sekarang">Enroll Now</button>
             </div>
         </div>
+
+        <div class="visa-sponsorship-notice" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem; padding: 1rem; background-color: rgba(74, 144, 226, 0.1); border-radius: 8px; color: var(--nlc-blue-dark); font-weight: 500; font-size: 0.95rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p data-en="ℹ️ Visa sponsorship requires enrollment in at least 3 levels." data-id="ℹ️ Sponsor visa memerlukan pendaftaran setidaknya di 3 tingkat.">
+                ℹ️ Visa sponsorship requires enrollment in at least 3 levels.
+            </p>
         </div>
     </section>
 
@@ -517,7 +512,7 @@
             <div class="instructors-grid">
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-ridzky.webp" alt="Dr. Ridzky Firmansyah Fahmi, M.Pd." loading="lazy">
+                        <img src="img/teacher-ridzky.webp" alt="Dr. Ridzky Firmansyah Fahmi, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Dr. Ridzky Firmansyah Fahmi, M.Pd.</h3>
@@ -540,7 +535,7 @@
 
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-ari.webp" alt="Ari Nursenja Rivanti, M.Pd." loading="lazy">
+                        <img src="img/teacher-ari.webp" alt="Ari Nursenja Rivanti, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Ari Nursenja Rivanti, M.Pd.</h3>
@@ -562,7 +557,7 @@
 
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-burhan.webp" alt="Burhan Sidik, M.Pd." loading="lazy">
+                        <img src="img/teacher-burhan.webp" alt="Burhan Sidik, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Burhan Sidik, M.Pd.</h3>
@@ -584,7 +579,7 @@
 
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-nais.webp" alt="Nais Ambarsari, M.Pd." loading="lazy">
+                        <img src="img/teacher-nais.webp" alt="Nais Ambarsari, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Nais Ambarsari, M.Pd.</h3>
@@ -608,7 +603,7 @@
                 <!-- Instructor 5: Pertiyani (Global/Diverse Experience) -->
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-pertiyani.webp" alt="Pertiyani Bakar, M.Pd." loading="lazy">
+                        <img src="img/teacher-pertiyani.webp" alt="Pertiyani Bakar, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Pertiyani Bakar, M.Pd.</h3>
@@ -630,7 +625,7 @@
 
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-tiara.webp" alt="Tiara Adinda Sulaeman, S.Pd." loading="lazy">
+                        <img src="img/teacher-tiara.webp" alt="Tiara Adinda Sulaeman, S.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Tiara Adinda Sulaeman, S.Pd.</h3>
@@ -653,7 +648,7 @@
                 <!-- Instructor 7: Dr. Marlia -->
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-marlia.webp" alt="Dr. Marlia, S.Pd., M.Hum." loading="lazy">
+                        <img src="img/teacher-marlia.webp" alt="Dr. Marlia, S.Pd., M.Hum." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Dr. Marlia, S.Pd., M.Hum.</h3>
@@ -676,7 +671,7 @@
                 <!-- Instructor 8: Dr. Riskha -->
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="img/teacher-riskha.webp" alt="Dr. Riskha Arfiyanti, M.Pd." loading="lazy">
+                        <img src="img/teacher-riskha.webp" alt="Dr. Riskha Arfiyanti, M.Pd." width="300" height="300" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3 class="instructor-name">Dr. Riskha Arfiyanti, M.Pd.</h3>
@@ -889,13 +884,14 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="img/logo-horizontal.png" alt="Nusantara Language Center" class="footer-logo"
+                    <img src="img/logo-horizontal.png" alt="Nusantara Language Center Logo" class="footer-logo" width="200" height="60"
                         loading="lazy">
                     <p data-en="Excellence in Indonesian Language Education since 2010"
                         data-id="Keunggulan dalam Pendidikan Bahasa Indonesia sejak 2010">
