@@ -588,6 +588,13 @@ section {
     gap: var(--spacing-md);
 }
 
+/* Force strict 3-column layout on Desktop to match the 6 cards perfectly (3x2) */
+@media (min-width: 1024px) {
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 .program-card {
     background: var(--white);
     border: 2px solid var(--light-gray);
@@ -596,6 +603,14 @@ section {
     transition: var(--transition-normal);
     position: relative;
     overflow: hidden;
+}
+
+/* Give more breathing room on the edges of the programs section for desktop */
+@media (min-width: 1024px) {
+    .programs .container {
+        padding: 0 4rem; /* Adds double the standard padding on the edges */
+        max-width: 1250px; /* Optional: stretch the container slightly if needed so cards don't shrink too much, or leave as is. Actually, just adding padding is best */
+    }
 }
 
 .program-card::before {
